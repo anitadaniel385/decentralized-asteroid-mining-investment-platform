@@ -311,10 +311,10 @@
 )
 
 ;; Authorize mining operator
-(define-public (authorize-operator (operator principal))
+(define-public (authorize-operator (new-operator principal))
   (begin
     (asserts! (is-eq tx-sender contract-owner) err-owner-only)
-    (map-set authorized-operators operator true)
+    (map-set authorized-operators new-operator true)
     (ok true)
   )
 )
@@ -382,8 +382,8 @@
 )
 
 ;; Check if address is authorized operator
-(define-read-only (is-authorized-operator (operator principal))
-  (default-to false (map-get? authorized-operators operator))
+(define-read-only (is-authorized-operator (address principal))
+  (default-to false (map-get? authorized-operators address))
 )
 
 ;; Get shareholder info

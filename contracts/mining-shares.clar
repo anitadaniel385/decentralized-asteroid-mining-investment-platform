@@ -4,7 +4,6 @@
 ;; description: Implements fungible token system for mining shares with investment tracking and dividend distribution
 
 ;; traits
-(use-trait ft-trait .sip-010-trait.sip-010-trait)
 
 ;; token definitions
 (define-fungible-token mining-shares)
